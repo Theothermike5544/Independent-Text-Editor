@@ -3,6 +3,12 @@
 ## Description
 This repository makes up Just Another Text Editor PWA. The text is data is stored to an IndexedDB database. It is also uses the package idb for storing and retrieving data. It works both online or can be installed to work offline.
 
+## Screenshots
+![screenshot](/Screenshot_offline.png?raw=true "Screenshot Offline")
+
+![screenshot](/Screenshot_heroku.png?raw=true "Screenshot Heroku")
+
+
 ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
