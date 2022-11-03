@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
-
 module.exports = () => {
   return {
     mode: 'development',
@@ -31,26 +31,29 @@ module.exports = () => {
         // TODO: Create a manifest.json:
         name: 'Just Another Text Editor',
         short_name: 'JATE',
-        description: 'My awesome Text Editor!',
+        description: 'My awesome Text Editor App!',
         background_color: '#ffffff',
-        crossorigin: 'use-credentials',
+        crossorigin: 'use-credentials', 
         icons: [
           {
             src: path.resolve('./assets/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512]
+            src: path.resolve('./src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512] 
           },
           {
             src: path.resolve('./assets/images/logo.png'),
+            src: path.resolve('./src/images/logo.png'),
             size: '1024x1024'
+          },
           {
             src: path.resolve('./assets/images/logo.png'),
+            src: path.resolve('./src/images/logo.png'),
             size: '1024x1024',
             purpose: 'maskable'
           }
         ]
       }),
     ],
-
     module: {
       rules: [
         {

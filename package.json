@@ -12,7 +12,7 @@
     "client": "cd client && npm start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Michael Bishop",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
+    "mini-css-extract-plugin": "^2.6.0",
     "nodemon": "^2.0.4"
   }
 }
