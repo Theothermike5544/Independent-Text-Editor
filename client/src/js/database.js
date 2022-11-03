@@ -1,5 +1,4 @@
 import { openDB } from 'idb';
-
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -11,22 +10,21 @@ const initdb = async () =>
       console.log('jate database created');
     },
   });
-
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
   console.log('Post to the jate');
 
   // Create a connection to the database database and version we want to use.
-  const todosDb = await openDB('jate', 1);
-  
+  const jateDb = await openDB('jate', 1);
+
   // Create a new transaction and specify the database and data privileges.
-  const tx = todosDb.transaction('jate', 'readwrite');
+  const tx = jateDb.transaction('jate', 'readwrite');
 
   // Open up the desired object store.
   const store = tx.objectStore('jate');
 
   // Use the .add() method on the store and pass in the content.
-  const request = store.add({ jate: content });
+  const request = store.put({ value: content });
 
   // Get confirmation of the request.
   const result = await request;
@@ -37,21 +35,18 @@ export const getDb = async () => {
   console.log('GET all from the database');
 
   // Create a connection to the database database and version we want to use.
-  const todosDb = await openDB('jate', 1);
+  const jateDb = await openDB('jate', 1);
 
   // Create a new transaction and specify the database and data privileges.
-  const tx = todosDb.transaction('jate', 'readonly');
+  const tx = jateDb.transaction('jate', 'readonly');
 
   // Open up the desired object store.
   const store = tx.objectStore('jate');
-
   // Use the .getAll() method to get all data in the database.
   const request = store.getAll();
-
    // Get confirmation of the request.
   const result = await request;
   console.log('result.value', result);
   return result;
 }
-
 initdb();
