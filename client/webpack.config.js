@@ -29,20 +29,19 @@ module.exports = () => {
       }), 
       new WebpackPwaManifest({
         // TODO: Create a manifest.json:
-        name: 'My Progressive Web App',
-        short_name: 'MyPWA',
-        description: 'My awesome Progressive Web App!',
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'My awesome Text Editor!',
         background_color: '#ffffff',
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        crossorigin: 'use-credentials',
         icons: [
           {
             src: path.resolve('./assets/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+            sizes: [96, 128, 192, 256, 384, 512]
           },
           {
             src: path.resolve('./assets/images/logo.png'),
-            size: '1024x1024' // you can also use the specifications pattern
-          },
+            size: '1024x1024'
           {
             src: path.resolve('./assets/images/logo.png'),
             size: '1024x1024',
